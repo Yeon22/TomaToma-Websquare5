@@ -1,0 +1,9 @@
+{
+   "sendTime": "2018-06-21 11:13:28",
+   "serviceURL": "http://localhost:8080/toma/qna.do",
+   "reqMethod": "POST",
+   "charset": "UTF-8",
+   "contentType": "application/json",
+   "requestContent": "",
+   "responseContent": "[{\"q_no\":27,\"q_title\":\"ghg\",\"q_content\":\"jgjg\",\"u_id\":\"csc\",\"q_date\":\"2018-06-13T15:00:00.000+0000\",\"q_reply\":\"n\"},{\"q_no\":31,\"q_title\":\"1:1질문 테스트\",\"q_content\":\"질문이\\n잘\\n되는가\\n!@#!$#^%$%^$%^%*^&(&^*(*()_\\n''''\\n\\\"\\\"\\\"\\\"\\nㅁㄴㅇㅁㄴㅇ\",\"u_id\":\"csc\",\"q_date\":\"2018-06-14T15:00:00.000+0000\",\"q_reply\":\"n\"},{\"q_no\":1,\"q_title\":\"우와와오앙\",\"q_content\":\"update testtest\",\"u_id\":\"csc\",\"q_date\":\"2018-06-18T15:00:00.000+0000\",\"q_reply\":\"n\"},{\"q_no\":24,\"q_title\":\"testtoken\",\"q_content\":\"tokenservice\",\"u_id\":\"csc\",\"q_date\":\"2018-06-13T15:00:00.000+0000\",\"q_reply\":\"n\"},{\"q_no\":25,\"q_title\":\"test33333\",\"q_content\":\"ee33333\",\"u_id\":\"csc\",\"q_date\":\"2018-06-13T15:00:00.000+0000\",\"q_reply\":\"n\"},{\"q_no\":33,\"q_title\":\"qnatest\",\"q_content\":\"qna\\ntest\\nㅅㄷㅅㄷㅅㄷ\\nㅅㄷㅅㄷㅅㄷㅇㄹㅇ\",\"u_id\":\"csc\",\"q_date\":\"2018-06-14T15:00:00.000+0000\",\"q_reply\":\"n\"},{\"q_no\":15,\"q_title\":\"test4\",\"q_content\":\"test4\",\"u_id\":\"csc\",\"q_date\":\"2018-06-11T15:00:00.000+0000\",\"q_reply\":\"n\"},{\"q_no\":35,\"q_title\":\"안녕하세요 문의할게 있어서 올립니다\",\"q_content\":\"안녕하세요 문의할게 있어서 올립니다\",\"u_id\":\"d500@naver.com\",\"q_date\":\"2018-06-19T15:00:00.000+0000\",\"q_reply\":\"네! 문의 하세요!\"},{\"q_no\":34,\"q_title\":\"token삭제fddd\",\"q_content\":\"토큰을 삭제에에에에ㅔ\\ndhfkdfhidslfssk\",\"u_id\":\"csc\",\"q_date\":\"2018-06-17T15:00:00.000+0000\",\"q_reply\":\"n\"}]"
+}

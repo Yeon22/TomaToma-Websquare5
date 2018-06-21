@@ -1,0 +1,9 @@
+{
+   "sendTime": "2018-06-21 11:06:59",
+   "serviceURL": "http://localhost:8080/toma/faq.do",
+   "reqMethod": "POST",
+   "charset": "UTF-8",
+   "contentType": "application/json",
+   "requestContent": "",
+   "responseContent": "[{\"f_no\":1,\"f_category\":\"배송\",\"f_title\":\"제가 해외에 사는데 해외배송도 해주시나요?\",\"f_content\":\"저희 토마토마는 해외배송은 해드리지 않습니다\",\"a_id\":\"admin\",\"f_date\":\"2018-06-03T15:00:00.000+0000\",\"f_hits\":103}]"
+}
