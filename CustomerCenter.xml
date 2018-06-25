@@ -17,7 +17,7 @@
         				<w2:column id="n_title" name="n_title" dataType="text"></w2:column>
         				<w2:column id="n_content" name="n_content" dataType="text"></w2:column>
         				<w2:column id="a_id" name="a_id" dataType="text"></w2:column>
-        				<w2:column id="n_date" name="n_date" dataType="text"></w2:column>
+        				<w2:column id="n_date" name="n_date" dataType="date"></w2:column>
         				<w2:column id="n_hits" name="n_hits" dataType="text"></w2:column>
         			</w2:columnInfo>
         			<w2:data xmlns="">
@@ -155,11 +155,11 @@ dhfkdfhidslfssk]]></q_content>
         		mode="asynchronous" processMsg="불러오는 중입니다." ev:submit="" ev:submitdone="scwin.sub_select_submitdone"
         		ev:submiterror="scwin.sub_select_submiterror" abortTrigger="">
         	</xf:submission>
-        	<xf:submission id="sub_faqSelect" ref="" target="" action="http://localhost:8080/toma/faq.do" method="post"
+        	<xf:submission id="sub_faqSelect" ref="" target="data:json,faqList" action="http://localhost:8080/toma/faq.do" method="post"
         		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
         		processMsg="불러오는 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
-        	<xf:submission id="sub_qnaSelect" ref="" target="" action="http://localhost:8080/toma/qna.do" method="post"
+        	<xf:submission id="sub_qnaSelect" ref="" target="data:json,qnaList" action="http://localhost:8080/toma/qna.do" method="post"
         		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
         		processMsg="통신중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
@@ -226,7 +226,7 @@ dhfkdfhidslfssk]]></q_content>
     		</xf:group>
     		<w2:gridView ignoreCellClick="false" summaryAuto="false" syncScroll="false" ignoreToggleOnDisabled="false"
     			summaryOnlyAuto="false" defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:noticeList" id="ui_gridView"
-    			applyAllColumnStyle="false" style="height: 150px;margin: 10px;border: 1px solid black;" useShiftKey="true" scrollByColumn="false">
+    			applyAllColumnStyle="false" style="height: 150px;margin: 10px;border: 1px solid black;" useShiftKey="true" scrollByColumn="false" sortEvent="onclick" sortable="true">
     			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     			<w2:header id="header1" style="">
     				<w2:row id="row1" style="">
@@ -270,8 +270,8 @@ dhfkdfhidslfssk]]></q_content>
     					<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
     						width="70" value="" displayMode="label">
     					</w2:column>
-    					<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    						width="70" value="" displayMode="label">
+    					<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" style="" inputType="calendar"
+    						width="70" value="" displayMode="label" dataType="date">
     					</w2:column>
     					<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" style="" width="70"
     						inputType="text" value="" displayMode="label">
@@ -303,7 +303,7 @@ dhfkdfhidslfssk]]></q_content>
     		<w2:gridView applyAllColumnStyle="false" dataList="data:faqList" defaultCellHeight="20" id="" ignoreCellClick="false"
     			ignoreToggleOnDisabled="false" scrollByColumn="false" scrollByColumnAdaptive="false"
     			style="height: 150px;margin: 10px;border: 1px solid black;" summaryAuto="false" summaryOnlyAuto="false" syncScroll="false"
-    			useShiftKey="true">
+    			useShiftKey="true" sortEvent="onclick" sortable="true">
     			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     			<w2:header id="header1" style="">
     				<w2:row id="row1" style="">
@@ -347,7 +347,7 @@ dhfkdfhidslfssk]]></q_content>
     					<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="a_id" inputType="text"
     						removeBorderStyle="false" style="" value="" width="70">
     					</w2:column>
-    					<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="f_date" inputType="text"
+    					<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="f_date" inputType="calendar"
     						removeBorderStyle="false" style="" value="" width="70">
     					</w2:column>
     					<w2:column blockSelect="false" displayMode="label" footerDiv="false" id="f_hits" inputType="text"
@@ -376,7 +376,7 @@ dhfkdfhidslfssk]]></q_content>
     		<w2:gridView applyAllColumnStyle="false" dataList="data:qnaList" defaultCellHeight="20" id="" ignoreCellClick="false"
     			ignoreToggleOnDisabled="false" scrollByColumn="false" scrollByColumnAdaptive="false"
     			style="height: 150px;margin: 10px;border: 1px solid black;" summaryAuto="false" summaryOnlyAuto="false" syncScroll="false"
-    			useShiftKey="true">
+    			useShiftKey="true" sortable="true" sortEvent="onclick">
     			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     			<w2:header id="header1" style="">
     				<w2:row id="row1" style="">
@@ -414,7 +414,7 @@ dhfkdfhidslfssk]]></q_content>
     					<w2:column blockSelect="false" id="u_id" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
     						width="70" value="" displayMode="label">
     					</w2:column>
-    					<w2:column blockSelect="false" id="q_date" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
+    					<w2:column blockSelect="false" id="q_date" removeBorderStyle="false" footerDiv="false" style="" inputType="calendar"
     						width="70" value="" displayMode="label">
     					</w2:column>
     					<w2:column blockSelect="false" id="q_reply" removeBorderStyle="false" footerDiv="false" style="" width="70"
