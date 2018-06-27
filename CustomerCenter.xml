@@ -179,7 +179,7 @@ dhfkdfhidslfssk]]></q_content>
         		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
         		processMsg="통신중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
-        	<xf:submission id="removeNoticeList" ref="data:json,removes" target="" action="http://localhost:8080/toma/notice.delete"
+        	<xf:submission id="removeNotice" ref="data:json,removes" target="" action="http://localhost:8080/toma/notice.delete"
         		method="delete" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
         		mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
@@ -213,24 +213,16 @@ dhfkdfhidslfssk]]></q_content>
 	};
 	
 	scwin.noticeUpdateTrigger_onclick = function(e) {
-		updateArr = noticeList.getAllData();
-		var rNotice = new Array();
-		for(var i=0; i < updateArr.length; i++) {
-			rNotice.push(updateArr[i]);
-			updateNotice.setData( rNotice );
-		}
+		
 	};
 	
 	scwin.noticeRemoveTrigger_onclick = function(e) {
-		removeArr = noticeList.removeRow( rowArr );
-		console.log(removeArr);
-		var rNotices = new Array();
-		for(var i=0; i < removeArr.length; i++) {
-			rNotices.push(removeArr[i]);
-			removes.setData(rNotices);
+		focusRows = ui_gridView.getAllFocusedRowIndex();
+		for(i = 0; i < focusRows.length; i++) {
+			noticeList.deleteRow( focusRows[i] );
 		}
 		
-		$w.executeSubmission( "removeNoticeList" );
+		$w.executeSubmission( "removeNotice" );
 	};
 	
 	
