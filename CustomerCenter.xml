@@ -55,99 +55,104 @@
         			</w2:data>
         		</w2:dataList>
         		<w2:dataList id="qnaList" saveRemovedData="true">
-					<w2:columnInfo>
-						<w2:column id="q_no" name="q_no" dataType="text"></w2:column>
-						<w2:column id="q_title" name="q_title" dataType="text"></w2:column>
-						<w2:column id="q_content" name="q_content" dataType="text"></w2:column>
-						<w2:column id="u_id" name="u_id" dataType="text"></w2:column>
-						<w2:column id="q_date" name="q_date" dataType="text"></w2:column>
-						<w2:column id="q_reply" name="q_reply" dataType="text"></w2:column>
-					</w2:columnInfo>
-					<w2:data xmlns="">
-						<w2:row>
-							<q_no><![CDATA[27]]></q_no>
-							<q_title><![CDATA[ghg]]></q_title>
-							<q_content><![CDATA[jgjg]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-13T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[31]]></q_no>
-							<q_title><![CDATA[1:1질문 테스트]]></q_title>
-							<q_content><![CDATA[질문이
+        			<w2:columnInfo>
+        				<w2:column id="q_no" name="q_no" dataType="text"></w2:column>
+        				<w2:column id="q_title" name="q_title" dataType="text"></w2:column>
+        				<w2:column id="q_content" name="q_content" dataType="text"></w2:column>
+        				<w2:column id="u_id" name="u_id" dataType="text"></w2:column>
+        				<w2:column id="q_date" name="q_date" dataType="text"></w2:column>
+        				<w2:column id="q_reply" name="q_reply" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data xmlns="">
+        				<w2:row>
+        					<q_no><![CDATA[27]]></q_no>
+        					<q_title><![CDATA[ghg]]></q_title>
+        					<q_content><![CDATA[jgjg]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-13T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[31]]></q_no>
+        					<q_title><![CDATA[1:1질문 테스트]]></q_title>
+        					<q_content><![CDATA[질문이
 잘
 되는가
 !@#!$#^%$%^$%^%*^&(&^*(*()_
 ''''
 """"
 ㅁㄴㅇㅁㄴㅇ]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-14T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[1]]></q_no>
-							<q_title><![CDATA[우와와오앙]]></q_title>
-							<q_content><![CDATA[update testtest]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-18T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[24]]></q_no>
-							<q_title><![CDATA[testtoken]]></q_title>
-							<q_content><![CDATA[tokenservice]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-13T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[25]]></q_no>
-							<q_title><![CDATA[test33333]]></q_title>
-							<q_content><![CDATA[ee33333]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-13T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[33]]></q_no>
-							<q_title><![CDATA[qnatest]]></q_title>
-							<q_content><![CDATA[qna
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-14T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[1]]></q_no>
+        					<q_title><![CDATA[우와와오앙]]></q_title>
+        					<q_content><![CDATA[update testtest]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-18T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[24]]></q_no>
+        					<q_title><![CDATA[testtoken]]></q_title>
+        					<q_content><![CDATA[tokenservice]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-13T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[25]]></q_no>
+        					<q_title><![CDATA[test33333]]></q_title>
+        					<q_content><![CDATA[ee33333]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-13T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[33]]></q_no>
+        					<q_title><![CDATA[qnatest]]></q_title>
+        					<q_content><![CDATA[qna
 test
 ㅅㄷㅅㄷㅅㄷ
 ㅅㄷㅅㄷㅅㄷㅇㄹㅇ]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-14T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[15]]></q_no>
-							<q_title><![CDATA[test4]]></q_title>
-							<q_content><![CDATA[test4]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-11T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[35]]></q_no>
-							<q_title><![CDATA[안녕하세요 문의할게 있어서 올립니다]]></q_title>
-							<q_content><![CDATA[안녕하세요 문의할게 있어서 올립니다]]></q_content>
-							<u_id><![CDATA[d500@naver.com]]></u_id>
-							<q_date><![CDATA[2018-06-19T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[네! 문의 하세요!]]></q_reply>
-						</w2:row>
-						<w2:row>
-							<q_no><![CDATA[34]]></q_no>
-							<q_title><![CDATA[token삭제fddd]]></q_title>
-							<q_content><![CDATA[토큰을 삭제에에에에ㅔ
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-14T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[15]]></q_no>
+        					<q_title><![CDATA[test4]]></q_title>
+        					<q_content><![CDATA[test4]]></q_content>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-11T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[35]]></q_no>
+        					<q_title><![CDATA[안녕하세요 문의할게 있어서 올립니다]]></q_title>
+        					<q_content><![CDATA[안녕하세요 문의할게 있어서 올립니다]]></q_content>
+        					<u_id><![CDATA[d500@naver.com]]></u_id>
+        					<q_date><![CDATA[2018-06-19T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[네! 문의 하세요!]]></q_reply>
+        				</w2:row>
+        				<w2:row>
+        					<q_no><![CDATA[34]]></q_no>
+        					<q_title><![CDATA[token삭제fddd]]></q_title>
+        					<q_content><![CDATA[토큰을 삭제에에에에ㅔ
 dhfkdfhidslfssk]]></q_content>
-							<u_id><![CDATA[csc]]></u_id>
-							<q_date><![CDATA[2018-06-17T15:00:00.000+0000]]></q_date>
-							<q_reply><![CDATA[n]]></q_reply>
-						</w2:row>
-					</w2:data>
-				</w2:dataList>
+        					<u_id><![CDATA[csc]]></u_id>
+        					<q_date><![CDATA[2018-06-17T15:00:00.000+0000]]></q_date>
+        					<q_reply><![CDATA[n]]></q_reply>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        		<w2:dataList id="removes" baseNode="list" saveRemovedData="true" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="col1" name="name1" dataType="number"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
         	</w2:dataCollection>
         	<w2:workflowCollection></w2:workflowCollection>
         	<xf:submission id="sub_noticeSelect" ref="" target='data:json,noticeList' action="http://localhost:8080/toma/notice.do"
@@ -163,9 +168,12 @@ dhfkdfhidslfssk]]></q_content>
         		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
         		processMsg="통신중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
+        	<xf:submission id="removeNoticeList" ref="data:json,removes" target="" action="http://localhost:8080/toma/notice.delete" method="delete" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
         </xf:model>
         <script type="text/javascript" lazy="false"><![CDATA[
-        
 	scwin.onpageload = function() {
 		
 	};
@@ -174,29 +182,53 @@ dhfkdfhidslfssk]]></q_content>
 		
 	};
 	
+	var rowArr = new Array();
+	
+	scwin.ui_gridView_oncellclick = function(row,col) {
+		rowArr.push(ui_gridView.getFocusedRowIndex());
+		console.log(rowArr);
+	};
+	
 	scwin.noticeSelectTrigger_onclick = function(e) {
 		$w.executeSubmission( "sub_noticeSelect" );
 	};
+	
 	scwin.noticeInsertTrigger_onclick = function(e) {
 		noticeList.insertRow( ui_gridView.getFocusedRowIndex() );
 	};
+	
 	scwin.noticeRemoveTrigger_onclick = function(e) {
-		noticeList.removeRow( ui_gridView.getFocusedRowIndex() );
+		removeArr = noticeList.removeRows( rowArr );
+		console.log(removeArr);
+		var rNotices = new Array();
+		for(var i=0; i < removeArr.length; i++) {
+			rNotices.push(removeArr[i][0]);
+			removes.setData(rNotices);
+		}
+		
+		$w.executeSubmission( "removeNoticeList" );
 	};
+	
+	
 	
 	scwin.faqSelectTrigger_onclick = function(e) {
 		$w.executeSubmission( "sub_faqSelect" );
 	};
+	
 	scwin.faqInsertTrigger_onclick = function(e) {
 		faqList.insertRow( ui_gridView.getFocusedRowIndex() );
 	};
+	
 	scwin.faqRemoveTrigger_onclick = function(e) {
 		faqList.removeRow( ui_gridView.getFocusedRowIndex() );
 	};
 	
+	
+	
 	scwin.qnaSelectTrigger_onclick = function(e) {
 		$w.executeSubmission( "sub_qnaSelect" );
 	};
+	
 	scwin.qnaInsertTrigger_onclick = function(e) {
 		qnaList.insertRow( ui_gridView.getFocusedRowIndex() );
 	};
@@ -226,7 +258,7 @@ dhfkdfhidslfssk]]></q_content>
     		</xf:group>
     		<w2:gridView ignoreCellClick="false" summaryAuto="false" syncScroll="false" ignoreToggleOnDisabled="false"
     			summaryOnlyAuto="false" defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:noticeList" id="ui_gridView"
-    			applyAllColumnStyle="false" style="height: 150px;margin: 10px;border: 1px solid black;" useShiftKey="true" scrollByColumn="false" sortEvent="onclick" sortable="true">
+    			applyAllColumnStyle="false" style="height: 150px;margin: 10px;border: 1px solid black;" useShiftKey="true" scrollByColumn="false" sortEvent="onclick" sortable="true" ev:oncellclick="scwin.ui_gridView_oncellclick">
     			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     			<w2:header id="header1" style="">
     				<w2:row id="row1" style="">
