@@ -153,6 +153,17 @@ dhfkdfhidslfssk]]></q_content>
         				<w2:column id="col1" name="name1" dataType="number"></w2:column>
         			</w2:columnInfo>
         		</w2:dataList>
+        		<w2:dataList id="updateNotice" baseNode="list" saveRemovedData="true" repeatNode="map">
+        			<w2:columnInfo>
+        				<w2:column id="n_no" name="n_no" dataType="text"></w2:column>
+        				<w2:column id="n_category" name="n_category" dataType="text"></w2:column>
+        				<w2:column id="n_title" name="n_title" dataType="text"></w2:column>
+        				<w2:column id="n_content" name="n_content" dataType="text"></w2:column>
+        				<w2:column id="a_id" name="a_id" dataType="text"></w2:column>
+        				<w2:column id="n_date" name="n_date" dataType="date"></w2:column>
+        				<w2:column id="n_hits" name="n_hits" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
         	</w2:dataCollection>
         	<w2:workflowCollection></w2:workflowCollection>
         	<xf:submission id="sub_noticeSelect" ref="" target='data:json,noticeList' action="http://localhost:8080/toma/notice.do"
@@ -168,9 +179,13 @@ dhfkdfhidslfssk]]></q_content>
         		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
         		processMsg="통신중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
-        	<xf:submission id="removeNoticeList" ref="data:json,removes" target="" action="http://localhost:8080/toma/notice.delete" method="delete" mediatype="application/json" encoding="UTF-8"
-        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone=""
-        		ev:submiterror="" abortTrigger="">
+        	<xf:submission id="removeNoticeList" ref="data:json,removes" target="" action="http://localhost:8080/toma/notice.delete"
+        		method="delete" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="updateNoticeList" ref="data:json,updateNotice" target="" action="http://localhost:8080/toma/notice.update"
+        		method="put" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
         </xf:model>
         <script type="text/javascript" lazy="false"><![CDATA[
@@ -195,6 +210,15 @@ dhfkdfhidslfssk]]></q_content>
 	
 	scwin.noticeInsertTrigger_onclick = function(e) {
 		noticeList.insertRow( ui_gridView.getFocusedRowIndex() );
+	};
+	
+	scwin.noticeUpdateTrigger_onclick = function(e) {
+		updateArr = noticeList.getAllData();
+		var rNotice = new Array();
+		for(var i=0; i < updateArr.length; i++) {
+			rNotice.push(updateArr[i]);
+			updateNotice.setData( rNotice );
+		}
 	};
 	
 	scwin.noticeRemoveTrigger_onclick = function(e) {
@@ -251,8 +275,8 @@ dhfkdfhidslfssk]]></q_content>
     				type="button" ev:onclick="scwin.noticeRemoveTrigger_onclick">
     				<xf:label><![CDATA[삭제]]></xf:label>
     			</xf:trigger>
-    			<xf:trigger id="" style="margin-right: 10px;height: 25px;width: 80px;font-weight:bold;border: 1px solid black;"
-    				type="button">
+    			<xf:trigger id="noticeUpdateTrigger" style="margin-right: 10px;height: 25px;width: 80px;font-weight:bold;border: 1px solid black;"
+    				type="button" ev:onclick="scwin.noticeUpdateTrigger_onclick">
     				<xf:label><![CDATA[저장]]></xf:label>
     			</xf:trigger>
     		</xf:group>
