@@ -222,11 +222,11 @@ dhfkdfhidslfssk]]></q_content>
 	};
 	
 	scwin.noticeRemoveTrigger_onclick = function(e) {
-		removeArr = noticeList.removeRows( rowArr );
+		removeArr = noticeList.removeRow( rowArr );
 		console.log(removeArr);
 		var rNotices = new Array();
 		for(var i=0; i < removeArr.length; i++) {
-			rNotices.push(removeArr[i][0]);
+			rNotices.push(removeArr[i]);
 			removes.setData(rNotices);
 		}
 		
