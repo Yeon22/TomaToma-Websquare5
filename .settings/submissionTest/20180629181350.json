@@ -1,0 +1,9 @@
+{
+   "sendTime": "2018-06-29 18:13:50",
+   "serviceURL": "http://localhost:8080/toma/faq.do",
+   "reqMethod": "POST",
+   "charset": "UTF-8",
+   "contentType": "application/json",
+   "requestContent": "",
+   "responseContent": "{\"msg\":\"조회가 완료되었습니다.\",\"faqList\":[{\"f_no\":3,\"f_category\":\"배송\",\"f_title\":\"배송지 주소록 변경은 어떻게 하죠?\",\"f_content\":\"로그인을 하신뒤  MyPage 로 가셔서 \\n기본 주소 선택란을 변경 하시면 됩니다\",\"a_id\":\"admin\",\"f_date\":\"2018-06-27T15:00:00.000+0000\",\"f_hits\":1},{\"f_no\":1,\"f_category\":\"배송\",\"f_title\":\"제가 해외에 사는데 해외배송도 해주시나요?\",\"f_content\":\"저희 토마토마는 해외배송은 해드리지 않습니다\",\"a_id\":\"admin\",\"f_date\":\"2018-06-03T15:00:00.000+0000\",\"f_hits\":111}]}"
+}
