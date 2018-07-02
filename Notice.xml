@@ -13,13 +13,13 @@
 
         		<w2:dataList id="noticeList" saveRemovedData="true">
         			<w2:columnInfo>
-        				<w2:column id="n_no" name="n_no" dataType="text"></w2:column>
+        				<w2:column id="n_no" name="n_no" dataType="number"></w2:column>
         				<w2:column id="n_category" name="n_category" dataType="text"></w2:column>
         				<w2:column id="n_title" name="n_title" dataType="text"></w2:column>
         				<w2:column id="n_content" name="n_content" dataType="text"></w2:column>
         				<w2:column id="a_id" name="a_id" dataType="text"></w2:column>
-        				<w2:column id="n_date" name="n_date" dataType="text"></w2:column>
-        				<w2:column id="n_hits" name="n_hits" dataType="text"></w2:column>
+        				<w2:column id="n_date" name="n_date" dataType="date"></w2:column>
+        				<w2:column id="n_hits" name="n_hits" dataType="number"></w2:column>
         			</w2:columnInfo>
         			<w2:data xmlns="">
         				<w2:row>
@@ -72,9 +72,15 @@
         		method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
         		mode="asynchronous" processMsg="불러오는 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
-        	<xf:submission id="sub_noticeRemove" ref="data:json,noticeList" target="data:json,noticeList" action="http://localhost:8080/toma/notice.delete"
-        		method="delete" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
-        		mode="asynchronous" processMsg="삭제 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+        	<xf:submission id="sub_noticeRemove" ref="data:json,noticeList" target="data:json,noticeList"
+        		action="http://localhost:8080/toma/notice.delete" method="delete" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="삭제 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sub_noticeInsertUpdate" ref="data:json,noticeList" target="data:json,noticeList"
+        		action="http://localhost:8080/toma/notice/saveAndSelectMember.do" method="post" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
         	</xf:submission>
         </xf:model>
         <script type="text/javascript" lazy="false"><![CDATA[
@@ -86,7 +92,6 @@
 	scwin.onpageunload = function() {
 		
 	};
-	
 	
 	scwin.selectBtn_onclick = function(e) {
 		$w.executeSubmission( "sub_noticeSelect" );
@@ -101,6 +106,14 @@
 		
 		$w.executeSubmission( "sub_noticeRemove" );
 	};
+	
+	scwin.insertBtn_onclick = function(e) {
+		noticeList.insertRow();
+	};
+	
+	scwin.updateBtn_onclick = function(e) {
+		$w.executeSubmission( "sub_noticeInsertUpdate" );
+	};
 	]]></script>
     </head>
     <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
@@ -108,24 +121,24 @@
     		<xf:trigger id="selectBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.selectBtn_onclick">
     			<xf:label><![CDATA[조회]]></xf:label>
     		</xf:trigger>
-    		<xf:trigger id="" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button">
+    		<xf:trigger id="insertBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.insertBtn_onclick">
     			<xf:label><![CDATA[추가]]></xf:label>
     		</xf:trigger>
     		<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.removeBtn_onclick">
     			<xf:label><![CDATA[삭제]]></xf:label>
     		</xf:trigger>
-    		<xf:trigger id="" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button">
+    		<xf:trigger id="updateBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.updateBtn_onclick">
     			<xf:label><![CDATA[저장]]></xf:label>
     		</xf:trigger>
     	</xf:group>
     	<w2:gridView ignoreCellClick="false" summaryAuto="false" syncScroll="false" ignoreToggleOnDisabled="false" summaryOnlyAuto="false"
     		defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:noticeList" id="noticeGridView" applyAllColumnStyle="false"
-    		style="left:0px;top:0px;border: 2px solid black;height: 300px;" scrollByColumn="false" useShiftKey="true" sortable="true">
+    		style="left:0px;top:0px;border: 2px solid black;height: 500px;" scrollByColumn="false" useShiftKey="true" sortable="true">
     		<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     		<w2:header id="header1" style="">
     			<w2:row id="row1" style="">
     				<w2:column blockSelect="false" id="column13" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="번호" displayMode="label">
+    					width="70" value="번호" displayMode="label" hidden="true">
     				</w2:column>
     				<w2:column blockSelect="false" id="column11" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
     					width="70" value="분류" displayMode="label">
@@ -164,8 +177,8 @@
     				<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
     					width="70" value="" displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="" displayMode="label">
+    				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" style="" inputType="calendar"
+    					width="70" value="" displayMode="label" displayFormat="yyyy-MM-dd" ioFormat="yyyyMMdd" applyFormat="" displayFormatter="">
     				</w2:column>
     				<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" style="" width="70"
     					inputType="text" value="" displayMode="label">

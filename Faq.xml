@@ -13,13 +13,13 @@
 
         		<w2:dataList id="faqList" saveRemovedData="true">
         			<w2:columnInfo>
-        				<w2:column id="f_no" name="f_no" dataType="text"></w2:column>
+        				<w2:column id="f_no" name="f_no" dataType="number"></w2:column>
         				<w2:column id="f_category" name="f_category" dataType="text"></w2:column>
         				<w2:column id="f_title" name="f_title" dataType="text"></w2:column>
         				<w2:column id="f_content" name="f_content" dataType="text"></w2:column>
         				<w2:column id="a_id" name="a_id" dataType="text"></w2:column>
-        				<w2:column id="f_date" name="f_date" dataType="text"></w2:column>
-        				<w2:column id="f_hits" name="f_hits" dataType="text"></w2:column>
+        				<w2:column id="f_date" name="f_date" dataType="date"></w2:column>
+        				<w2:column id="f_hits" name="f_hits" dataType="number"></w2:column>
         			</w2:columnInfo>
         			<w2:data xmlns="">
         				<w2:row>
@@ -54,6 +54,11 @@
         		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="삭제 중입니다." ev:submit="" ev:submitdone=""
         		ev:submiterror="" abortTrigger="">
         	</xf:submission>
+        	<xf:submission id="sub_faqInsertUpdate" ref="data:json,faqList" target="data:json,faqList"
+        		action="http://localhost:8080/toma/faq/saveAndSelectMember.do" method="post" mediatype="application/json" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="처리 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
         </xf:model>
         <script type="text/javascript" lazy="false"><![CDATA[
         
@@ -78,6 +83,14 @@
 		
 		$w.executeSubmission( "sub_faqRemove" );
 	};
+	
+	scwin.insertBtn_onclick = function(e) {
+		faqList.insertRow();
+	};
+	
+	scwin.updateBtn_onclick = function(e) {
+		$w.executeSubmission( "sub_faqInsertUpdate" );
+	};
 	]]></script>
     </head>
     <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
@@ -88,29 +101,26 @@
     				type="button" ev:onclick="scwin.selectBtn_onclick">
     				<xf:label><![CDATA[조회]]></xf:label>
     			</xf:trigger>
-    			<xf:trigger id="" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
-    				type="button">
+    			<xf:trigger id="insertBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.insertBtn_onclick">
     				<xf:label><![CDATA[추가]]></xf:label>
     			</xf:trigger>
     			<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
     				type="button" ev:onclick="scwin.removeBtn_onclick">
     				<xf:label><![CDATA[삭제]]></xf:label>
     			</xf:trigger>
-    			<xf:trigger id="" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
-    				type="button">
+    			<xf:trigger id="updateBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.updateBtn_onclick">
     				<xf:label><![CDATA[저장]]></xf:label>
     			</xf:trigger>
     		</xf:group>
     		<w2:gridView applyAllColumnStyle="false" dataList="data:faqList" defaultCellHeight="20" id="faqGridView" ignoreCellClick="false"
     			ignoreToggleOnDisabled="false" scrollByColumn="false" scrollByColumnAdaptive="false"
-    			style="left:0px;top:0px;border: 2px solid black;height: 300px;" summaryAuto="false" summaryOnlyAuto="false" syncScroll="false"
+    			style="left:0px;top:0px;border: 2px solid black;height: 500px;" summaryAuto="false" summaryOnlyAuto="false" syncScroll="false"
     			useShiftKey="true" sortable="true">
     			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     			<w2:header id="header1" style="">
     				<w2:row id="row1" style="">
-    					<w2:column blockSelect="false" id="column13" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    						width="70" value="번호" displayMode="label">
-    					</w2:column>
     					<w2:column blockSelect="false" id="column11" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
     						width="70" value="분류" displayMode="label">
     					</w2:column>
@@ -133,9 +143,6 @@
     			</w2:header>
     			<w2:gBody id="gBody1" style="">
     				<w2:row id="row2" style="">
-    					<w2:column blockSelect="false" id="f_no" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    						width="70" value="" displayMode="label">
-    					</w2:column>
     					<w2:column blockSelect="false" id="f_category" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
     						width="70" value="" displayMode="label">
     					</w2:column>
@@ -148,8 +155,8 @@
     					<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
     						width="70" value="" displayMode="label">
     					</w2:column>
-    					<w2:column blockSelect="false" id="f_date" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    						width="70" value="" displayMode="label">
+    					<w2:column blockSelect="false" id="f_date" removeBorderStyle="false" footerDiv="false" style="" inputType="calendar"
+    						width="70" value="" displayMode="label" ioFormat="yyyyMMdd" displayFormat="yyyy-MM-dd">
     					</w2:column>
     					<w2:column blockSelect="false" id="f_hits" removeBorderStyle="false" footerDiv="false" style="" width="70"
     						inputType="text" value="" displayMode="label">
