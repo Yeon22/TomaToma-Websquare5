@@ -49,6 +49,11 @@
         		mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
         		processMsg="불러오는 중입니다." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
+        	<xf:submission id="sub_faqRemove" ref="data:json,faqList" target="data:json,faqList"
+        		action="http://localhost:8080/toma/faq.delete" method="delete" mediatype="application/json" encoding="UTF-8" instance=""
+        		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="삭제 중입니다." ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
         </xf:model>
         <script type="text/javascript" lazy="false"><![CDATA[
         
@@ -64,6 +69,15 @@
 	scwin.selectBtn_onclick = function(e) {
 		$w.executeSubmission( "sub_faqSelect" );
 	};
+	
+	scwin.removeBtn_onclick = function(e) {
+		focusRows = faqGridView.getAllFocusedRowIndex();
+		for(i=0; i < focusRows.length; i++){
+			faqList.deleteRow( focusRows[i] );
+		}
+		
+		$w.executeSubmission( "sub_faqRemove" );
+	};
 	]]></script>
     </head>
     <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
@@ -78,8 +92,8 @@
     				type="button">
     				<xf:label><![CDATA[추가]]></xf:label>
     			</xf:trigger>
-    			<xf:trigger id="" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
-    				type="button">
+    			<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    				type="button" ev:onclick="scwin.removeBtn_onclick">
     				<xf:label><![CDATA[삭제]]></xf:label>
     			</xf:trigger>
     			<xf:trigger id="" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
@@ -87,10 +101,10 @@
     				<xf:label><![CDATA[저장]]></xf:label>
     			</xf:trigger>
     		</xf:group>
-    		<w2:gridView applyAllColumnStyle="false" dataList="data:faqList" defaultCellHeight="20" id="" ignoreCellClick="false"
+    		<w2:gridView applyAllColumnStyle="false" dataList="data:faqList" defaultCellHeight="20" id="faqGridView" ignoreCellClick="false"
     			ignoreToggleOnDisabled="false" scrollByColumn="false" scrollByColumnAdaptive="false"
     			style="left:0px;top:0px;border: 2px solid black;height: 300px;" summaryAuto="false" summaryOnlyAuto="false" syncScroll="false"
-    			useShiftKey="true">
+    			useShiftKey="true" sortable="true">
     			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     			<w2:header id="header1" style="">
     				<w2:row id="row1" style="">
