@@ -18,7 +18,7 @@
         				<w2:column id="n_title" name="n_title" dataType="text"></w2:column>
         				<w2:column id="n_content" name="n_content" dataType="text"></w2:column>
         				<w2:column id="a_id" name="a_id" dataType="text"></w2:column>
-        				<w2:column id="n_date" name="n_date" dataType="date"></w2:column>
+        				<w2:column id="n_date" name="n_date" dataType="date" importFormatter="" useFilter=""></w2:column>
         				<w2:column id="n_hits" name="n_hits" dataType="number"></w2:column>
         			</w2:columnInfo>
         			<w2:data xmlns="">
@@ -114,26 +114,57 @@
 	scwin.updateBtn_onclick = function(e) {
 		$w.executeSubmission( "sub_noticeInsertUpdate" );
 	};
+	
+	scwin.moveFaq_onclick = function(e) {
+		$w.url( "Faq.xml" );
+	};
+	
+	scwin.moveQna_onclick = function(e) {
+		$w.url( "Qna.xml" );
+	};
+	
+	function dateFormat(date) {
+//		보이는건 제대로 보이지만 데이터가 형식에 맞춰서 안들어감...
+		var dateFormat = new Date(date).toISOString().slice(0,10); 
+		
+		return dateFormat;
+	}
+	
 	]]></script>
     </head>
     <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
-    <xf:group id="" style="padding: 10px;"><w2:textbox id="" style="font-weight: bold;font-size: 30px;margin-bottom: 10px;" label="공지사항 관리자 페이지"></w2:textbox><xf:group id="" style="margin-bottom: 10px;">
-    		<xf:trigger id="selectBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.selectBtn_onclick">
+    <xf:group id="" style="padding: 10px;">
+    	<w2:textbox id="" style="font-weight: bold;font-size: 30px;margin-bottom: 10px;overflow: hidden;"
+    		label="공지사항 관리자 페이지">
+    	</w2:textbox>
+    	
+    	<xf:group id="" style="margin-bottom: 10px;">
+    		<xf:trigger id="selectBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.selectBtn_onclick">
     			<xf:label><![CDATA[조회]]></xf:label>
     		</xf:trigger>
-    		<xf:trigger id="insertBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.insertBtn_onclick">
+    		<xf:trigger id="insertBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.insertBtn_onclick">
     			<xf:label><![CDATA[추가]]></xf:label>
     		</xf:trigger>
-    		<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.removeBtn_onclick">
+    		<xf:trigger id="removeBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.removeBtn_onclick">
     			<xf:label><![CDATA[삭제]]></xf:label>
     		</xf:trigger>
-    		<xf:trigger id="updateBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;" type="button" ev:onclick="scwin.updateBtn_onclick">
+    		<xf:trigger id="updateBtn" style="width: 80px;height: 23px;border: 2px solid black;margin-right: 5px;font-weight: bold;"
+    			type="button" ev:onclick="scwin.updateBtn_onclick">
     			<xf:label><![CDATA[저장]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger type="button" id="moveQna" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;" ev:onclick="scwin.moveQna_onclick">
+    		<xf:label><![CDATA[1:1 질문하기]]></xf:label>
+    	</xf:trigger><xf:trigger id="moveFaq" style="font-weight: bold;font-size: 15px;border: 2px solid black;float: right;left:0px;top:0px;margin-right: 5px;"
+    			type="button" ev:onclick="scwin.moveFaq_onclick">
+    			<xf:label><![CDATA[자주하는 질문]]></xf:label>
     		</xf:trigger>
     	</xf:group>
     	<w2:gridView ignoreCellClick="false" summaryAuto="false" syncScroll="false" ignoreToggleOnDisabled="false" summaryOnlyAuto="false"
     		defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:noticeList" id="noticeGridView" applyAllColumnStyle="false"
-    		style="left:0px;top:0px;border: 2px solid black;height: 500px;" scrollByColumn="false" useShiftKey="true" sortable="true">
+    		style="left:0px;top:0px;border: 2px solid black;height: 500px;" scrollByColumn="false" useShiftKey="true" sortable="true" ev:oncellclick="scwin.noticeGridView_oncellclick">
     		<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     		<w2:header id="header1" style="">
     			<w2:row id="row1" style="">
@@ -178,12 +209,13 @@
     					width="70" value="" displayMode="label">
     				</w2:column>
     				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" style="" inputType="calendar"
-    					width="70" value="" displayMode="label" displayFormat="yyyy-MM-dd" ioFormat="yyyyMMdd" applyFormat="" displayFormatter="">
+    					width="70" value="" displayMode="label" displayFormat="" ioFormat="yyyyMMdd" applyFormat="" displayFormatter="" dataType="date" escapeFormatter="">
     				</w2:column>
     				<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" style="" width="70"
     					inputType="text" value="" displayMode="label">
     				</w2:column>
     			</w2:row>
     		</w2:gBody>
-    	</w2:gridView></xf:group></body>
+    	</w2:gridView>
+    </xf:group></body>
 </html>

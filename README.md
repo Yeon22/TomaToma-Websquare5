@@ -1,2 +1,6 @@
 # TopcreTeam Websquare를 활용한 고객센터 관리자 페이지
-![TopcreTeam_CustomerCenter](./asset/customercenter.PNG)
+`------------------------------------------------------------------------------------------------------------------------------`
+### CRUD 게시판 이미지 예시
+* #### CRUD 기능
+* #### 페이지 이동 기능
+![TopcreTeam_CustomerCenter](./asset/sampleImg.PNG)
