@@ -98,13 +98,23 @@
 	};
 	
 	scwin.removeBtn_onclick = function(e) {
+//		var popup = { id: "deletePopup", type: "window", width: "800px", height: "800px",
+//			top: "100px", left: "200px" };
+//		Websquare.util.openPopup( "Notice.xml" , popup );
+
 		focusRows = noticeGridView.getAllFocusedRowIndex();
 		console.log(focusRows);
 		for(i=0;i<focusRows.length;i++){
 			noticeList.deleteRow( focusRows[i] );
 		}
 		
-		$w.executeSubmission( "sub_noticeRemove" );
+		if(focusRows.length == 0) {
+			alert("삭제하실 데이터를 선택(클릭)하여 주세요.");
+		} else {
+			alert("선택하신 데이터가 삭제되었습니다.");
+			$w.executeSubmission( "sub_noticeRemove" );
+		}
+		
 	};
 	
 	scwin.insertBtn_onclick = function(e) {
@@ -112,6 +122,8 @@
 	};
 	
 	scwin.updateBtn_onclick = function(e) {
+		alert("입력(수정) 시 날짜 형식은 yyyy-MM-dd입니다.\n날짜 형식이 다를 경우 데이터가 입력(수정)되지 않습니다.");
+		
 		$w.executeSubmission( "sub_noticeInsertUpdate" );
 	};
 	
@@ -164,55 +176,56 @@
     	</xf:group>
     	<w2:gridView ignoreCellClick="false" summaryAuto="false" syncScroll="false" ignoreToggleOnDisabled="false" summaryOnlyAuto="false"
     		defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:noticeList" id="noticeGridView" applyAllColumnStyle="false"
-    		style="left:0px;top:0px;border: 2px solid black;height: 500px;" scrollByColumn="false" useShiftKey="true" sortable="true" ev:oncellclick="scwin.noticeGridView_oncellclick">
+    		style="left:0px;top:0px;border: 2px solid black;height: 300px;" scrollByColumn="false" useShiftKey="true" sortable="true"
+    		ev:oncellclick="scwin.noticeGridView_oncellclick">
     		<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
     		<w2:header id="header1" style="">
     			<w2:row id="row1" style="">
-    				<w2:column blockSelect="false" id="column13" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="번호" displayMode="label" hidden="true">
+    				<w2:column blockSelect="false" id="column13" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					value="번호" displayMode="label" hidden="true">
     				</w2:column>
-    				<w2:column blockSelect="false" id="column11" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="분류" displayMode="label">
+    				<w2:column blockSelect="false" id="column11" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					value="분류" displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="column9" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="제목" displayMode="label">
+    				<w2:column blockSelect="false" id="column9" removeBorderStyle="false" footerDiv="false" inputType="text" width="210"
+    					value="제목" displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="column7" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="내용" displayMode="label">
+    				<w2:column blockSelect="false" id="column7" removeBorderStyle="false" footerDiv="false" inputType="text" width="550"
+    					value="내용" displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="column5" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="관리자 ID" displayMode="label">
+    				<w2:column blockSelect="false" id="column5" removeBorderStyle="false" footerDiv="false" inputType="text" width="80"
+    					value="관리자 ID" displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="column3" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="날짜" displayMode="label">
+    				<w2:column blockSelect="false" id="column3" removeBorderStyle="false" footerDiv="false" inputType="text" width="90"
+    					value="날짜" displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="column1" removeBorderStyle="false" footerDiv="false" style="" width="70"
-    					inputType="text" value="조회수" displayMode="label">
+    				<w2:column blockSelect="false" id="column1" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
+    					value="조회수" displayMode="label">
     				</w2:column>
     			</w2:row>
     		</w2:header>
     		<w2:gBody id="gBody1" style="">
     			<w2:row id="row2" style="">
-    				<w2:column blockSelect="false" id="n_no" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="" displayMode="label">
+    				<w2:column blockSelect="false" id="n_no" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="n_category" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="" displayMode="label">
+    				<w2:column blockSelect="false" id="n_category" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="n_title" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="" displayMode="label">
+    				<w2:column blockSelect="false" id="n_title" removeBorderStyle="false" footerDiv="false" inputType="text" width="210"
+    					displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="n_content" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="" displayMode="label">
+    				<w2:column blockSelect="false" id="n_content" removeBorderStyle="false" footerDiv="false" inputType="text" width="500"
+    					displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" style="" inputType="text"
-    					width="70" value="" displayMode="label">
+    				<w2:column blockSelect="false" id="a_id" removeBorderStyle="false" footerDiv="false" inputType="text" width="70"
+    					displayMode="label">
     				</w2:column>
-    				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" style="" inputType="calendar"
-    					width="70" value="" displayMode="label" displayFormat="" ioFormat="yyyyMMdd" applyFormat="" displayFormatter="" dataType="date" escapeFormatter="">
+    				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" inputType="calendar" width="90"
+    					displayMode="label" ioFormat="yyyyMMdd" dataType="date" calendarValueType="yearMonthDate">
     				</w2:column>
-    				<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" style="" width="70"
-    					inputType="text" value="" displayMode="label">
+    				<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
+    					displayMode="label">
     				</w2:column>
     			</w2:row>
     		</w2:gBody>
