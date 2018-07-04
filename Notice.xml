@@ -142,6 +142,17 @@
 		return dateFormat;
 	}
 	
+	//display formatter
+	scwin.dformatter = function(data){
+		return data.substring(0,4) + "/" + data.substring(4,6) + "/" + data.substring(6,8);
+	};
+	
+	
+	scwin.cFormatter = function(data, fData, rowIdx, colIdx){
+		return fData;
+	};
+	
+	
 	]]></script>
     </head>
     <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
@@ -222,7 +233,7 @@
     					displayMode="label">
     				</w2:column>
     				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" inputType="calendar" width="90"
-    					displayMode="label" ioFormat="yyyyMMdd" dataType="date" calendarValueType="yearMonthDate">
+    					displayMode="label" ioFormat="yyyyMMdd" dataType="date" calendarValueType="yearMonthDate" calendarClass="" displayFormatter="scwin.dformatter" displayFormat="" customFormatter="scwin.cFormatter">
     				</w2:column>
     				<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
     					displayMode="label">
