@@ -135,16 +135,10 @@
 		$w.url( "Qna.xml" );
 	};
 	
-	function dateFormat(date) {
-//		보이는건 제대로 보이지만 데이터가 형식에 맞춰서 안들어감...
-		var dateFormat = new Date(date).toISOString().slice(0,10); 
-		
-		return dateFormat;
-	}
-	
 	//display formatter
 	scwin.dformatter = function(data){
-		return data.substring(0,4) + "/" + data.substring(4,6) + "/" + data.substring(6,8);
+//		return data.substring(0,4) + "/" + data.substring(4,6) + "/" + data.substring(6,8);
+		return new Date(data).toISOString().slice(0,10);
 	};
 	
 	
@@ -233,7 +227,7 @@
     					displayMode="label">
     				</w2:column>
     				<w2:column blockSelect="false" id="n_date" removeBorderStyle="false" footerDiv="false" inputType="calendar" width="90"
-    					displayMode="label" ioFormat="yyyyMMdd" dataType="date" calendarValueType="yearMonthDate" calendarClass="" displayFormatter="scwin.dformatter" displayFormat="" customFormatter="scwin.cFormatter">
+    					displayMode="label" ioFormat="yyyyMMdd" dataType="date" calendarValueType="" calendarClass="" displayFormatter="" displayFormat="" customFormatter="">
     				</w2:column>
     				<w2:column blockSelect="false" id="n_hits" removeBorderStyle="false" footerDiv="false" width="70" inputType="text"
     					displayMode="label">
